@@ -1,0 +1,312 @@
+/* General Styles */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  background: url("file:///C:/Users/User/Downloads/DALL%C2%B7E%202024-11-19%2019.13.28%20-%20A%20high-quality,%20visually%20appealing%20image%20of%20a%20modern%20apartment%20interior.%20The%20space%20features%20an%20open-concept%20design%20with%20sleek,%20minimalist%20furniture,%20l.webp") no-repeat center center/cover; /* Add this image to the `public` folder */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.hero-overlay {
+  background: rgba(233, 227, 227, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 40px;
+  margin: 0;
+}
+
+.hero-btn {
+  background-color: #ffd700;
+  color: #333;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.hero-btn:hover {
+  background-color: #ffbf00;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Featured Section */
+.featured-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  background: #fff;
+}
+
+.featured-section h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.featured-section p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.featured-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin: 10px;
+  color: #007bff;
+}
+
+.card p {
+  margin: 0 10px 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Call to Action Section */
+/* Call to Action Section */
+.cta-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  gap: 20px;
+  padding: 50px 20px;
+  background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient background */
+  color: white;
+  border-radius: 10px; /* Smooth rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.cta-section h2 {
+  flex: 1 1 100%; /* Ensures heading spans the width on smaller screens */
+  font-size: 28px;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px; /* Adds spacing */
+  color: #fff;
+}
+
+.cta-section p {
+  flex: 1 1 60%; /* Limits the paragraph width */
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: white;
+  color: #007bff;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px; /* Fully rounded button */
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.cta-btn:hover {
+  background-color: #ffd700;
+  color: #333;
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 30px 10px;
+    text-align: center;
+  }
+
+  .cta-section p {
+    flex: 1 1 100%;
+  }
+
+  .cta-btn {
+    flex: 1 1 100%;
+    margin-top: 10px;
+  }
+}
+/* General Reset */
+body, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #007bff;
+  padding: 10px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar .menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  color: #ffd700;
+}
+
+.navbar .post-btn {
+  background-color: #040303;
+  color: #007bff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar .post-btn:hover {
+  background-color: #090808;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #007bff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0 15px;
+  }
+}
+
+/* Add space to avoid overlapping the navbar */
+.hero {
+  margin-top: 60px;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}

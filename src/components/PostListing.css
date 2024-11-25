@@ -1,0 +1,122 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #1E90FF, #FFD700); /* Blue to yellow gradient */
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  /* Form container */
+  form {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Form header */
+  form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1E90FF; /* Blue */
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Input fields and textarea */
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 2px solid #1E90FF; /* Blue border */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 120px;
+  }
+  
+  /* Input focus */
+  input:focus,
+  textarea:focus {
+    border-color: #FFD700; /* Yellow border on focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.8); /* Yellow glow */
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 15px;
+    background-color: #FFD700; /* Yellow background */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #FFC107; /* Darker yellow on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* File input */
+  input[type="file"] {
+    padding: 3px;
+    background-color: #f0f8ff;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    form {
+      padding: 15px 20px;
+    }
+  
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    button[type="submit"] {
+      font-size: 14px;
+    }
+  
+    form h2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    form {
+      margin: 30px 10px;
+      padding: 10px 15px;
+    }
+  
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    button[type="submit"] {
+      font-size: 13px;
+      padding: 10px;
+    }
+  
+    form h2 {
+      font-size: 18px;
+    }
+  }
+  
