@@ -1,122 +1,167 @@
-/* General styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #1E90FF, #FFD700); /* Blue to yellow gradient */
-    margin: 0;
-    padding: 0;
-    color: #333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.title-posting {
+  display: flex;
+}
+
+/* Page container */
+.post-listing-page {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e90ff, #87cefa);
+  min-height: 100vh;
+}
+
+/* Form container */
+.post-listing-form {
+  background-color: #ffffff;
+  width: 800px;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Form header */
+.post-listing-form h2 {
+  font-size: 28px;
+  color: #333333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Form content */
+.form-content {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Image section */
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.image-section input[type="file"] {
+  font-size: 16px;
+}
+
+/* Details section (Title and Description) */
+.details-section {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.details-section input,
+.details-section textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.details-section textarea {
+  resize: none;
+  height: 120px;
+}
+
+/* Input focus effects */
+.post-listing-form input:focus,
+.post-listing-form select:focus,
+.post-listing-form textarea:focus {
+  border-color: #1e90ff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+}
+
+/* Location and Bedrooms section (Flex layout) */
+.location-bedrooms-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.location-bedrooms-section select {
+  width: 48%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Price Section */
+.post-listing-form input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 30px 0; /* Space below the price field */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Submit button */
+.post-listing-form button {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #1e90ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.post-listing-form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.02);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .form-content {
+    flex-direction: column;
   }
-  
-  /* Form container */
-  form {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
+
+  .image-preview {
+    width: 100px;
+    height: 100px;
   }
-  
-  /* Form header */
-  form h2 {
-    text-align: center;
+
+  .location-bedrooms-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .location-bedrooms-section select {
+    width: 100%;
+  }
+
+  .post-listing-form input[type="number"] {
     margin-bottom: 20px;
-    color: #1E90FF; /* Blue */
-    font-size: 24px;
-    font-weight: bold;
   }
-  
-  /* Input fields and textarea */
-  input[type="text"],
-  input[type="number"],
-  input[type="file"],
-  textarea {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border: 2px solid #1E90FF; /* Blue border */
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-  }
-  
-  textarea {
-    resize: vertical;
-    height: 120px;
-  }
-  
-  /* Input focus */
-  input:focus,
-  textarea:focus {
-    border-color: #FFD700; /* Yellow border on focus */
-    outline: none;
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.8); /* Yellow glow */
-  }
-  
-  /* Submit button */
-  button[type="submit"] {
-    width: 100%;
-    padding: 12px 15px;
-    margin-top: 15px;
-    background-color: #FFD700; /* Yellow background */
-    color: #ffffff; /* White text */
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #FFC107; /* Darker yellow on hover */
-    transform: scale(1.05); /* Slight zoom effect */
-  }
-  
-  /* File input */
-  input[type="file"] {
-    padding: 3px;
-    background-color: #f0f8ff;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    form {
-      padding: 15px 20px;
-    }
-  
-    input[type="text"],
-    input[type="number"],
-    input[type="file"],
-    textarea,
-    button[type="submit"] {
-      font-size: 14px;
-    }
-  
-    form h2 {
-      font-size: 20px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    form {
-      margin: 30px 10px;
-      padding: 10px 15px;
-    }
-  
-    input[type="text"],
-    input[type="number"],
-    input[type="file"],
-    textarea,
-    button[type="submit"] {
-      font-size: 13px;
-      padding: 10px;
-    }
-  
-    form h2 {
-      font-size: 18px;
-    }
-  }
-  
+}

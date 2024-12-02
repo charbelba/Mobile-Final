@@ -1,86 +1,170 @@
 /* General Styles */
 body {
-    font-family: "Roboto", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Page Heading */
+h2 {
+  margin: 10px 0;
+  color: #000000;
+  font-size: 32px;
+}
+
+/* Search Title */
+.search-title {
+  font-size: 32px;
+  color: #000000;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Filter Section */
+.filters {
+  display: flex;
+  justify-content: flex-start; /* Align filters to the left */
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  max-width: 800px; /* Limit filter width */
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 200px;
+  transition: border-color 0.3s;
+}
+
+select {
+  cursor: pointer;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Properties Container */
+.properties-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensures 3 properties per row */
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  max-width: 1200px; /* Set max width to limit the container width */
+  margin: 0 auto; /* Center the container */
+}
+
+@media (max-width: 768px) {
+  .properties-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 properties per row on smaller screens */
   }
-  
-  /* Page Heading */
-  h2 {
-    text-align: center;
-    margin: 20px 0;
-    color: #007bff;
-    font-size: 32px;
+}
+
+@media (max-width: 480px) {
+  .properties-container {
+    grid-template-columns: 1fr; /* 1 property per row on extra small screens */
   }
-  
-  /* Filter Section */
-  div > div {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-    flex-wrap: wrap;
-  }
-  
-  input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 200px;
-    transition: border-color 0.3s;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  /* Property Cards Container */
-  div > div:last-child {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  /* Individual Property Card */
-  .property-card {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-  }
-  
-  .property-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .property-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .property-card h3 {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #007bff;
-  }
-  
-  .property-card p {
-    margin: 0 10px 10px;
-    font-size: 16px;
-    color: #555;
-  }
-  
+}
+
+/* Individual Property Card */
+.property-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Softer corners */
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Larger shadow for more depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Fixed height for cards */
+}
+
+.property-card:hover {
+  transform: translateY(-10px); /* Lifts the card on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow effect */
+  background-color: #f1f1f1; /* Light background color change */
+}
+
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px; /* Rounded corners for the image */
+  margin-bottom: 15px; /* Space between the image and text */
+}
+
+.property-card h3 {
+  font-size: 22px;
+  color: #000000;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.property-card p {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.property-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745; /* Green color for the price */
+  margin-bottom: 15px;
+}
+
+.property-card .location {
+  font-size: 14px;
+  color: #007bff; /* Blue color for location */
+}
+
+.property-card .bedrooms {
+  font-size: 14px;
+  color: #6c757d; /* Gray color for bedrooms */
+  margin-bottom: 15px;
+}
+
+/* Add a "More Details" Button */
+.property-card .details-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.property-card .details-button:hover {
+  background-color: #0056b3;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.content-search {
+  margin-top: 200px;
+  width: 1200px;
+}

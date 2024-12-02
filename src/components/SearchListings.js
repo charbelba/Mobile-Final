@@ -1,67 +1,75 @@
 import React, { useState } from "react";
 import "./SearchListings.css";
-import Navbar from "./Navbar"; // Import the Navbar component
+import Navbar from "./Navbar";
 
-const SearchListings = () => {
-  const [filters, setFilters] = useState({ location: "", price: "", bedrooms: "", type: "" });
+const SearchListings = ({ listings }) => {
+  const [filters, setFilters] = useState({
+    location: "",
+    price: "",
+    bedrooms: "",
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
   };
 
-  const properties = [
-    { id: 1, image: "/images4.jpg", price: 800, location: "Beirut", bedrooms: 2 },
-    { id: 2, image: "/images5.jpg", price: 900, location: "Naccache", bedrooms: 3 },
-    { id: 3, image: "/images6.jpg", price: 1200, location: "Jbeil", bedrooms: 4 },
-    { id: 4, image: "/images7.jpg", price: 600, location: "Akkar", bedrooms: 2 },
-    { id: 5, image: "/images8.jpg", price: 800, location: "Batroun", bedrooms: 3 },
-    { id: 6, image: "/images9.jpg", price: 500, location: "Gemayze", bedrooms: 1 },
-    { id: 7, image: "/images10.jpg", price: 600, location: "Gemayze", bedrooms: 1 },
-    { id: 8, image: "/images11.jpg", price: 700, location: "Dekweneh", bedrooms: 2 },
-    { id: 9, image: "/images12.jpg", price: 800, location: "Dekweneh", bedrooms: 2 },
-  ]; // Example data
-
-  const filteredProperties = properties.filter((property) => {
+  const filteredListings = listings.filter((listing) => {
     return (
-      (!filters.location || property.location.toLowerCase().includes(filters.location.toLowerCase())) &&
-      (!filters.price || property.price <= filters.price) &&
-      (!filters.bedrooms || property.bedrooms === parseInt(filters.bedrooms))
+      (!filters.location ||
+        listing.location
+          .toLowerCase()
+          .includes(filters.location.toLowerCase())) &&
+      (!filters.price || listing.price <= filters.price) &&
+      (!filters.bedrooms ||
+        parseInt(listing.bedrooms) === parseInt(filters.bedrooms))
     );
   });
 
   return (
-    <div className="search-listings">
-      {/* Include the Navbar */}
+    <div className="container">
       <Navbar />
 
-      <h2>Search Listings:</h2>
-      <div className="filters">
-        <input
-          name="location"
-          placeholder="Location"
-          onChange={handleInputChange}
-        />
-        <input
-          name="price"
-          placeholder="Max Price"
-          type="number"
-          onChange={handleInputChange}
-        />
-        <input
-          name="bedrooms"
-          placeholder="Bedrooms"
-          type="number"
-          onChange={handleInputChange}
-        />
+      <div className="content-search">
+        <h2 className="search-title">Search for a Listing</h2>
+        <div className="filters">
+          <input
+            name="location"
+            placeholder="Location"
+            onChange={handleInputChange}
+          />
+          <select
+            name="price"
+            value={filters.price}
+            onChange={handleInputChange}
+          >
+            <option value="">Max Price</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="1500">1500</option>
+            <option value="2000">2000</option>
+          </select>
+          <select
+            name="bedrooms"
+            value={filters.bedrooms}
+            onChange={handleInputChange}
+          >
+            <option value="">Bedrooms</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
       </div>
-      <div className="properties">
-        {filteredProperties.map((property) => (
-          <div key={property.id} className="property-card">
-            <img src={property.image} alt={property.location} />
-            <h3>${property.price}</h3>
-            <p>Location: {property.location}</p>
-            <p>Bedrooms: {property.bedrooms}</p>
+      <div className="properties-container">
+        {filteredListings.map((listing) => (
+          <div key={listing.id} className="property-card">
+            <img src={listing.image} alt={listing.title} />
+            <h3>${listing.price}</h3>
+            <p>Location: {listing.location}</p>
+            <p>Bedrooms: {listing.bedrooms}</p>
+            <p>{listing.description}</p>
           </div>
         ))}
       </div>

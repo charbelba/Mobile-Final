@@ -1,39 +1,51 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar"; // Import the Navbar component
-import "./LoginPage.css";
+import "./SignUpPage.css";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-    const userExists = accounts.some(
-      (account) =>
-        account.username === username && account.password === password
-    );
 
-    if (userExists) {
-      alert("Login successful!");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    } else {
-      alert("Login failed. Invalid username or password.");
+    if (accounts.some((account) => account.username === username)) {
+      alert("Username already exists. Please choose a different one.");
+      return;
     }
+
+    accounts.push({ username, password, email });
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+
+    alert("Account created successfully!");
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
   };
 
   return (
     <>
       <Navbar /> {/* Render Navbar */}
-      <div className="login-container">
-        <div className="login-box">
-          <h2>Please log in to continue</h2>
+      <div className="signup-container">
+        <div className="signup-box">
+          <h2>Create an Account</h2>
           <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="username">Username</label>
               <input
@@ -56,12 +68,12 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="login-btn">
-              Login
+            <button type="submit" className="signup-btn">
+              Sign Up
             </button>
           </form>
-          <p className="signup-link">
-            Don't have an account? <a href="/signup">Sign up here</a>
+          <p className="login-link">
+            Already have an account? <a href="/login">Log in here</a>
           </p>
         </div>
       </div>
@@ -69,4 +81,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
